@@ -45,8 +45,8 @@ public class Pengguna {
                 System.out.print("Usia: ");
                 this.usia = input.nextInt();
                 input.nextLine(); 
-                if (this.usia <= 0 || this.usia > 120) {
-                    System.out.println( "Usia harus 1-120" );
+                if (this.usia <= 12 || this.usia > 120) {
+                    System.out.println( "Usia minimal 13 tahun ke atas" );
                 } else {
                     validUsia = true;
                 }

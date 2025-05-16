@@ -1,20 +1,20 @@
 package model;
 
-public class GerakanRepetisi extends Gerakan {
+public class GerakanRep extends Gerakan {
     protected int repetisi;
 
-    public GerakanRepetisi(String namaGerakan, String bagianTubuh, int repetisi) {
+    public GerakanRep(String namaGerakan, String bagianTubuh, int repetisi) {
         super(namaGerakan, bagianTubuh);
         this.repetisi = repetisi;
     }
 
-    public GerakanRepetisi(String namaGerakan, int repetisi) {
+    public GerakanRep(String namaGerakan, int repetisi) {
         super(namaGerakan);
         this.repetisi = repetisi;
     }
 
     @Override
-    public void tampilkanDetail() {
+    public void detail() {
         System.out.println(namaGerakan + " (" + repetisi + " repetisi)");
     }
 

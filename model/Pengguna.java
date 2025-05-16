@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Pengguna {
     private String nama;
@@ -11,48 +12,125 @@ public class Pengguna {
     private double bmi;
     private double bmr;
     private String tujuanLatihan;
-
-    public void inputData(Scanner input) {
-        System.out.println("===============================");
-        System.out.println("🏠 SELAMAT DATANG DI HOME WORKOUT APP");
-        System.out.println("===============================\n");
-
-        System.out.println("Masukkan nama kamu: ");
-        System.out.print(">");
-        this.nama = input.nextLine();
-        System.out.println("\n=== Halo " + this.nama + "! Sebelum memulai latihan, silahkan masukkan data diri kamu.===\n");
-        System.out.println("Masukkan jenis kelamin (L/P): ");
-        System.out.print(">");
-        this.jenisKelamin = input.nextLine().toUpperCase();
-        System.out.println("Berapa usai kamu: ");
-        System.out.print(">");
-        this.usia = input.nextInt();
-        System.out.println("Berapa berat badan kamu sekarang? (Kg): ");
-        System.out.print(">");
-        this.beratBadan = input.nextDouble();
-        System.out.println("Berapa tinggi badan kamu? (cm): ");
-        System.out.print(">");
-        this.tinggiBadan = input.nextDouble();
-
-        System.out.println("\n-------------------------------------");
-        hasilAnalisiTubuh();
-        tampilkanSaran();
-
-        System.out.println("\n-------------------------------------");
-        System.out.println("🎯 PILIH TUJUAN LATIHAN KAMU:");
-        System.out.println("1. Menurunkan berat badan");
-        System.out.println("2. Membentuk otot");
-        System.out.println("3. Menjaga stamina");
-        System.out.print("   > ");
-        int pilihan = input.nextInt();
-        pilihTujuanLatihan(pilihan);
-        input.nextLine();
+    
+    public void input(Scanner input) {
+        System.out.println( "\n╔══════════════════════════════════╗");
+        System.out.println("║   SELAMAT DATANG DI APLIKASI     ║");
+        System.out.println("║         HOME WORKOUT             ║");
+        System.out.println("╚══════════════════════════════════╝" );
+        System.out.println("\nSilakan masukkan data diri Anda:");
+        System.out.println("──────────────────────────────────");
         
-        System.out.print("\nTekan ENTER untuk melanjutkan ke Menu Utama...");
+        // Input Nama
+        System.out.print("Nama Lengkap: ");
+        this.nama = input.nextLine();
+        if (this.nama.trim().isEmpty()) {
+            this.nama = "User";
+            System.out.println("Nama default digunakan: User" );
+        }
+        
+        // Input Jenis Kelamin
+        boolean validJenisKelamin = false;
+        while (!validJenisKelamin) {
+            System.out.print("Jenis Kelamin (L/P): ");
+            this.jenisKelamin = input.nextLine().toUpperCase();
+            if (this.jenisKelamin.equals("L") || this.jenisKelamin.equals("P")) {
+                validJenisKelamin = true;
+            } else {
+                System.out.println( "Masukkan L atau P" );
+            }
+        }
+        
+        // Input Usia
+        boolean validUsia = false;
+        while (!validUsia) {
+            try {
+                System.out.print("Usia: ");
+                this.usia = input.nextInt();
+                if (this.usia <= 0 || this.usia > 120) {
+                    System.out.println( "Usia harus 1-120" );
+                } else {
+                    validUsia = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println( "Input harus angka" );
+                input.nextLine();
+            }
+        }
+        
+        // Input Berat Badan
+        boolean validBB = false;
+        while (!validBB) {
+            try {
+                System.out.print("Berat Badan (kg): ");
+                this.beratBadan = input.nextDouble();
+                if (this.beratBadan <= 0 || this.beratBadan > 300) {
+                    System.out.println( "Berat harus 1-300 kg" );
+                } else {
+                    validBB = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println( "Input harus angka" );
+                input.nextLine();
+            }
+        }
+        
+        // Input Tinggi Badan
+        boolean validTB = false;
+        while (!validTB) {
+            try {
+                System.out.print("Tinggi Badan (cm): ");
+                this.tinggiBadan = input.nextDouble();
+                if (this.tinggiBadan <= 0 || this.tinggiBadan > 250) {
+                    System.out.println( "Tinggi harus 1-250 cm" );
+                } else {
+                    validTB = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println( "Input harus angka" );
+                input.nextLine();
+            }
+        }
+        input.nextLine(); // Clear buffer
+
+        // Analisis Tubuh
+        System.out.println("\nHASIL ANALISIS:" );
+        analisisTubuh();
+        saran();
+
+        // Pilih Tujuan Latihan
+        System.out.println( "\n╔══════════════════════════╗");
+        System.out.println("║   PILIH TUJUAN LATIHAN   ║");
+        System.out.println("╠══════════════════════════╣");
+        System.out.println("║ 1. Menurunkan berat badan║");
+        System.out.println("║ 2. Membentuk otot        ║");
+        System.out.println("║ 3. Menjaga stamina       ║");
+        System.out.println("╚══════════════════════════╝" );
+        
+        boolean validPilihan = false;
+        while (!validPilihan) {
+            try {
+                System.out.print("> " );
+                int pilihan = input.nextInt();
+                input.nextLine();
+                
+                if (pilihan >= 1 && pilihan <= 3) {
+                    pilihTujuan(pilihan);
+                    validPilihan = true;
+                } else {
+                    System.out.println( "Pilih 1-3" );
+                }
+            } catch (InputMismatchException e) {
+                System.out.println( "Input harus angka" );
+                input.nextLine();
+            }
+        }
+        
+        System.out.print("\nTekan ENTER untuk melanjutkan..." );
         input.nextLine();
     }
 
-    private double hitungBMR () {
+    private double hitungBMR() {
         if (jenisKelamin.equalsIgnoreCase("L")) {
             bmr = 66 + (13.7 * beratBadan) + (5 * tinggiBadan) - (6.8 * usia);
         } else {
@@ -74,45 +152,36 @@ public class Pengguna {
         return "Obese";
     }
 
-    private void hasilAnalisiTubuh() {
-        double bmi = hitungBMI();
-        String kategoriBMI = kategoriBMI();
-        double bmr = hitungBMR();
-        System.out.println("📊 ANALISIS TUBUH KAMU: ");
-        System.out.println("BMI: " + bmi + " (" + kategoriBMI + ")");
-        System.out.println("BMR (jumlah kalori harian rata-rata): " + bmr + " kcal\n");
+    private void analisisTubuh() {
+        hitungBMI();
+        hitungBMR();
+        System.out.printf("BMI: %.1f (%s)%n", bmi, kategoriBMI());
+        System.out.printf("BMR: %.0f kcal/hari%n", bmr);
     }
 
-    private void tampilkanSaran() {
+    private void saran() {
         String kategori = kategoriBMI();
-        if (kategori.equals("Underweight")) {
-            System.out.println("📌 Berat badanmu kurang. \n>> Disarankan untuk fokus pada: Menambah berat badan dan massa otot 🍗");
-        } else if (kategori.equals("Normal")) {
-            System.out.println("📌 Kamu berada dalam kategori sehat. \n>> Disarankan untuk fokus pada: Membentuk otot atau menjaga stamina💪");
-        } else {
-            System.out.println("📌 Kamu kelebihan berat badan. \n>> Disarankan untuk fokus pada: Menurunkan berat badan 🏃‍♂️");
+        System.out.println("\nSARAN:" );
+        switch (kategori) {
+            case "Underweight" -> 
+                System.out.println("Fokus: Menambah berat badan dan massa otot");
+            case "Normal" -> 
+                System.out.println("Fokus: Membentuk otot atau menjaga stamina");
+            default -> 
+                System.out.println("Fokus: Menurunkan berat badan");
         }
     }
 
-    private void pilihTujuanLatihan(int pilihan) {
+    private void pilihTujuan(int pilihan) {
         switch (pilihan) {
-            case 1:
-                tujuanLatihan = "Menurunkan berat badan";
-                break;
-            case 2:
-                tujuanLatihan = "Membentuk otot";
-                break;
-            case 3:
-                tujuanLatihan = "Menjaga stamina";
-                break;
-            default:
-                System.out.println("❗ Input tidak valid! Silahkan pilih menu yang tersedia.");
+            case 1 -> tujuanLatihan = "Menurunkan berat badan";
+            case 2 -> tujuanLatihan = "Membentuk otot";
+            case 3 -> tujuanLatihan = "Menjaga stamina";
         }
-
-        System.out.println("✅ Tujuan latihan kamu: " + tujuanLatihan);
-        setTujuanLatihan(tujuanLatihan);
+        System.out.println( "\nTujuan dipilih: " + tujuanLatihan );
     }
 
+    // Setter dan Getter
     public void setTujuanLatihan(String tujuan) {
         this.tujuanLatihan = tujuan;
     }

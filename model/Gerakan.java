@@ -16,7 +16,7 @@ public abstract class Gerakan {
         this.namaGerakan = namaGerakan;
     }
 
-    public abstract void tampilkanDetail();
+    public abstract void detail();
 
     public String getNamaGerakan() {
         return namaGerakan;
@@ -44,76 +44,76 @@ public abstract class Gerakan {
 
     public static List<Gerakan> getGerakanMenurunkanBB() {
         List<Gerakan> list = new ArrayList<>();
-        list.add(new GerakanDurasi("Jumping Jacks", "Cardio", 30));
-        list.add(new GerakanRepetisi("Mountain Climber", "Cardio", 20));
-        list.add(new GerakanDurasi("High Knees", "Cardio", 30));
-        list.add(new GerakanRepetisi("Burpee", "Full Body", 10));
-        list.add(new GerakanDurasi("Plank", "Core", 30));
-        list.add(new GerakanRepetisi("Squat", "Bawah", 15));
-        list.add(new GerakanRepetisi("Push-Up", "Atas", 12));
-        list.add(new GerakanDurasi("Lompat Tali (Simulasi)", "Cardio", 40));
-        list.add(new GerakanRepetisi("Lunges", "Bawah", 10));
-        list.add(new GerakanDurasi("Wall Sit", "Bawah", 30));
+        list.add(new GerakanDur("Jumping Jacks", "Cardio", 30));
+        list.add(new GerakanRep("Mountain Climber", "Cardio", 20));
+        list.add(new GerakanDur("High Knees", "Cardio", 30));
+        list.add(new GerakanRep("Burpee", "Full Body", 10));
+        list.add(new GerakanDur("Plank", "Core", 30));
+        list.add(new GerakanRep("Squat", "Bawah", 15));
+        list.add(new GerakanRep("Push-Up", "Atas", 12));
+        list.add(new GerakanDur("Lompat Tali", "Cardio", 40));
+        list.add(new GerakanRep("Lunges", "Bawah", 10));
+        list.add(new GerakanDur("Wall Sit", "Bawah", 30));
         return list;
     }
 
     public static List<Gerakan> getGerakanMenambahOtot() {
         List<Gerakan> list = new ArrayList<>();
-        list.add(new GerakanRepetisi("Push-Up", "Atas", 15));
-        list.add(new GerakanRepetisi("Pull-Up (simulasi)", "Atas", 10));
-        list.add(new GerakanRepetisi("Squat", "Bawah", 20));
-        list.add(new GerakanRepetisi("Glute Bridge", "Bawah", 15));
-        list.add(new GerakanDurasi("Plank", "Core", 45));
-        list.add(new GerakanRepetisi("Lunge", "Bawah", 12));
-        list.add(new GerakanRepetisi("Crunch", "Perut", 20));
-        list.add(new GerakanRepetisi("Chair Dips", "Atas", 10));
-        list.add(new GerakanDurasi("Side Plank", "Core", 30));
-        list.add(new GerakanRepetisi("Wall Push-Up", "Atas", 15));
+        list.add(new GerakanRep("Push-Up", "Atas", 15));
+        list.add(new GerakanRep("Pull-Up", "Atas", 10));
+        list.add(new GerakanRep("Squat", "Bawah", 20));
+        list.add(new GerakanRep("Glute Bridge", "Bawah", 15));
+        list.add(new GerakanDur("Plank", "Core", 45));
+        list.add(new GerakanRep("Lunge", "Bawah", 12));
+        list.add(new GerakanRep("Crunch", "Perut", 20));
+        list.add(new GerakanRep("Chair Dips", "Atas", 10));
+        list.add(new GerakanDur("Side Plank", "Core", 30));
+        list.add(new GerakanRep("Wall Push-Up", "Atas", 15));
         return list;
     }
 
     public static List<Gerakan> getGerakanStamina() {
         List<Gerakan> list = new ArrayList<>();
-        list.add(new GerakanDurasi("Jogging di Tempat", "Cardio", 60));
-        list.add(new GerakanDurasi("Jumping Jacks", "Cardio", 40));
-        list.add(new GerakanDurasi("High Knees", "Cardio", 30));
-        list.add(new GerakanDurasi("Burpee", "Cardio", 25));
-        list.add(new GerakanDurasi("Lompat Tali (Simulasi)", "Cardio", 60));
-        list.add(new GerakanDurasi("Skater Jumps", "Cardio", 30));
-        list.add(new GerakanDurasi("Plank Jacks", "Core", 30));
-        list.add(new GerakanDurasi("Butt Kicks", "Cardio", 40));
-        list.add(new GerakanDurasi("Fast Feet", "Cardio", 20));
-        list.add(new GerakanDurasi("Shadow Boxing", "Cardio", 30));
+        list.add(new GerakanDur("Jogging di Tempat", "Cardio", 60));
+        list.add(new GerakanDur("Jumping Jacks", "Cardio", 40));
+        list.add(new GerakanDur("High Knees", "Cardio", 30));
+        list.add(new GerakanDur("Burpee", "Cardio", 25));
+        list.add(new GerakanDur("Lompat Tali", "Cardio", 60));
+        list.add(new GerakanDur("Skater Jumps", "Cardio", 30));
+        list.add(new GerakanDur("Plank Jacks", "Core", 30));
+        list.add(new GerakanDur("Butt Kicks", "Cardio", 40));
+        list.add(new GerakanDur("Fast Feet", "Cardio", 20));
+        list.add(new GerakanDur("Shadow Boxing", "Cardio", 30));
         return list;
     }
 
     public static List<Gerakan> getGerakanFokusAtas() {
         List<Gerakan> list = new ArrayList<>();
-        list.add(new GerakanRepetisi("Push-Up", "Atas", 15));
-        list.add(new GerakanRepetisi("Shoulder Tap", "Atas", 20));
-        list.add(new GerakanRepetisi("Chair Dips", "Atas", 15));
-        list.add(new GerakanDurasi("Arm Circles", "Atas", 30));
-        list.add(new GerakanRepetisi("Wall Push-Up", "Atas", 20));
-        list.add(new GerakanDurasi("Plank to Push-Up", "Atas", 30));
-        list.add(new GerakanRepetisi("Incline Push-Up", "Atas", 12));
-        list.add(new GerakanDurasi("Hand Raise Hold", "Atas", 30));
-        list.add(new GerakanDurasi("Arm Pulse", "Atas", 30));
-        list.add(new GerakanDurasi("Triceps Extension", "Atas", 30));
+        list.add(new GerakanRep("Push-Up", "Atas", 15));
+        list.add(new GerakanRep("Shoulder Tap", "Atas", 20));
+        list.add(new GerakanRep("Chair Dips", "Atas", 15));
+        list.add(new GerakanDur("Arm Circles", "Atas", 30));
+        list.add(new GerakanRep("Wall Push-Up", "Atas", 20));
+        list.add(new GerakanDur("Plank to Push-Up", "Atas", 30));
+        list.add(new GerakanRep("Incline Push-Up", "Atas", 12));
+        list.add(new GerakanDur("Hand Raise Hold", "Atas", 30));
+        list.add(new GerakanDur("Arm Pulse", "Atas", 30));
+        list.add(new GerakanDur("Triceps Extension", "Atas", 30));
         return list;
     }
 
     public static List<Gerakan> getGerakanFokusBawah() {
         List<Gerakan> list = new ArrayList<>();
-        list.add(new GerakanRepetisi("Squat", "Bawah", 20));
-        list.add(new GerakanRepetisi("Lunge", "Bawah", 15));
-        list.add(new GerakanRepetisi("Glute Bridge", "Bawah", 20));
-        list.add(new GerakanDurasi("Wall Sit", "Bawah", 40));
-        list.add(new GerakanRepetisi("Calf Raise", "Bawah", 25));
-        list.add(new GerakanDurasi("Step Up (Simulasi)", "Bawah", 30));
-        list.add(new GerakanDurasi("Side Lunge", "Bawah", 30));
-        list.add(new GerakanDurasi("Knee Up", "Bawah", 30));
-        list.add(new GerakanRepetisi("Donkey Kick", "Bawah", 15));
-        list.add(new GerakanDurasi("Flutter Kick", "Bawah", 30));
+        list.add(new GerakanRep("Squat", "Bawah", 20));
+        list.add(new GerakanRep("Lunge", "Bawah", 15));
+        list.add(new GerakanRep("Glute Bridge", "Bawah", 20));
+        list.add(new GerakanDur("Wall Sit", "Bawah", 40));
+        list.add(new GerakanRep("Calf Raise", "Bawah", 25));
+        list.add(new GerakanDur("Step Up", "Bawah", 30));
+        list.add(new GerakanDur("Side Lunge", "Bawah", 30));
+        list.add(new GerakanDur("Knee Up", "Bawah", 30));
+        list.add(new GerakanRep("Donkey Kick", "Bawah", 15));
+        list.add(new GerakanDur("Flutter Kick", "Bawah", 30));
         return list;
     }
 }

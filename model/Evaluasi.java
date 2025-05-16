@@ -1,5 +1,5 @@
 package model;
 
 interface Evaluasi {
-    public void evaluasiPerubahanBB(double bbBaru);
+    public void evalBB(double bbBaru);
 }

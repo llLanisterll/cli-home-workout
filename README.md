@@ -96,7 +96,7 @@ Fitur ini memungkinkan pengguna untuk:
 Aplikasi ini menggunakan arsitektur Model-View berbasis objek dengan struktur sebagai berikut:
 
 ### Diagram Kelas
-![Class Diagram Home Workout App]([images/DiagramClass.png](https://github.com/llLanisterll/cli-home-workout/blob/main/image/Diagram%20Class.png))
+![Class Diagram Home Workout App](https://github.com/llLanisterll/cli-home-workout/blob/main/image/Diagram%20Class.png)
 
 *Diagram kelas menunjukkan hubungan antar komponen aplikasi*
 

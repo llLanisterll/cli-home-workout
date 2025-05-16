@@ -27,7 +27,6 @@ public abstract class Gerakan {
     }
 
     public static List<Gerakan> getGerakanSesuaiTujuan(String tujuan) {
-        // List<Gerakan> gerakan = new ArrayList<>();
         switch (tujuan.toLowerCase()) {
             case "menurunkan berat badan":
                 return getGerakanMenurunkanBB();
@@ -39,7 +38,6 @@ public abstract class Gerakan {
                 System.out.println("Input tidak valid.");
                 return new ArrayList<>();
         }
-        // return gerakan;
     }
 
     public static List<Gerakan> getGerakanMenurunkanBB() {

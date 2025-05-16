@@ -17,7 +17,7 @@ public class Progress implements Evaluasi {
 
     public void riwayat() {
         System.out.println( "\n╔══════════════════════════╗");
-        System.out.println("║      RIWAYAT LATIHAN    ║");
+        System.out.println("║      RIWAYAT LATIHAN     ║");
         System.out.println("╚══════════════════════════╝" );
 
         if (sesi == null) {
@@ -40,7 +40,7 @@ public class Progress implements Evaluasi {
 
     public void progress(Scanner input) {
         System.out.println( "\n╔══════════════════════════╗");
-        System.out.println("║     PROGRES LATIHAN    ║");
+        System.out.println("║     PROGRES LATIHAN      ║");
         System.out.println("╚══════════════════════════╝" );
         
         if (user == null) {
@@ -52,7 +52,7 @@ public class Progress implements Evaluasi {
             System.out.print("\nMasukkan berat badan terbaru (kg): " );
             double bbBaru = input.nextDouble();
             input.nextLine();
-            
+
             if (bbBaru <= 0 || bbBaru > 300) {
                 System.out.println( "Berat badan tidak valid" );
                 return;
@@ -61,7 +61,7 @@ public class Progress implements Evaluasi {
             evalBB(bbBaru);
             riwayat();
 
-            System.out.print("\nTekan ENTER untuk kembali..." );
+            System.out.print("\nTekan [ENTER] untuk kembali..." );
             input.nextLine();
         } catch (InputMismatchException e) {
             System.out.println( "Input harus angka" );

@@ -58,7 +58,7 @@ public class Sesi {
 
             daftarGerakan(daftarGerakan);
 
-            System.out.print( "\nTekan ENTER untuk mulai..." );
+            System.out.print( "\nTekan [ENTER] untuk mulai..." );
             input.nextLine(); input.nextLine();
 
             gerakan(daftarGerakan, input);
@@ -96,14 +96,14 @@ public class Sesi {
 
             daftarGerakan(gerakanTantangan);
 
-            System.out.print( "\nTekan ENTER untuk mulai..." );
+            System.out.print( "\nTekan [ENTER] untuk mulai..." );
             input.nextLine();
 
             gerakan(gerakanTantangan, input);
         
             System.out.println( "\n✔ Latihan selesai! Good job!" );
             tambahSesi();
-            System.out.print( "\nTekan ENTER untuk keluar..." );
+            System.out.print( "\nTekan [ENTER] untuk keluar..." );
             input.nextLine();
         } catch (Exception e) {
             System.out.println( "Error: " + e.getMessage() );
@@ -118,7 +118,7 @@ public class Sesi {
             }
             
             System.out.println("\n╔══════════════════════════════╗");
-            System.out.printf("║   LATIHAN CUSTOM HARI %-3d  ║%n", pilihanHari);
+            System.out.printf("║   LATIHAN CUSTOM HARI %-3d    ║%n", pilihanHari);
             System.out.println("╚══════════════════════════════╝" );
 
             List<Gerakan> daftarGerakanCustom = latihanCustom.getJadwalHari(pilihanHari);
@@ -130,7 +130,7 @@ public class Sesi {
 
             daftarGerakan(daftarGerakanCustom);
 
-            System.out.print( "\nTekan ENTER untuk mulai..." );
+            System.out.print( "\nTekan [ENTER] untuk mulai..." );
             input.nextLine(); 
             gerakan(daftarGerakanCustom, input);
             
@@ -163,7 +163,7 @@ public class Sesi {
                 
                 System.out.println( "\nGerakan #" + nomor + ":" );
                 g.detail();
-                System.out.print( "Tekan ENTER jika selesai..." );
+                System.out.print( "Tekan [ENTER] jika selesai..." );
                 input.nextLine();
                 nomor++;
             }
@@ -172,7 +172,6 @@ public class Sesi {
         }
     }
 
-    // Setter dan Getter tetap sama
     public void setUser(Pengguna user) {
         this.user = user;
     }

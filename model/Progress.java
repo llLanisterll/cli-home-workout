@@ -1,7 +1,7 @@
 package model;
 
-import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Progress implements Evaluasi {
     private Pengguna user;
@@ -100,7 +100,8 @@ public class Progress implements Evaluasi {
         user.setBeratBadan(bbBaru);
     }
 
-    private void evalBulking(double perubahanBB) {
+    @Override
+    public void evalBulking(double perubahanBB) {
         System.out.println(  "\nEVALUASI BULKING:" );
         if (perubahanBB < 0) {
             System.out.printf("Berat turun %.1f kg%n", Math.abs(perubahanBB));
@@ -114,7 +115,8 @@ public class Progress implements Evaluasi {
         }
     }
 
-    private void evalCutting(double perubahanBB) {
+    @Override
+    public void evalCutting(double perubahanBB) {
         System.out.println( "\nEVALUASI CUTTING:" );
         if (perubahanBB < 0) {
             System.out.printf("Berat turun %.1f kg%n", Math.abs(perubahanBB));
@@ -128,7 +130,9 @@ public class Progress implements Evaluasi {
         }
     }
 
-    private void evalStamina(double perubahanBB) {
+
+    @Override
+    public void evalStamina(double perubahanBB) {
         System.out.println( "\nEVALUASI STAMINA:" );
         if (perubahanBB != 0) {
             System.out.printf("Berat %s %.1f kg%n", 
